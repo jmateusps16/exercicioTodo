@@ -3,7 +3,7 @@ import 'package:psftodoapp/models/todoModel.dart';
 import 'package:http/http.dart' as http;
 
 abstract class TarefaRepository {
-  Future<bool> putTarefa(TodoModel tarefaModelo);
+  Future<bool> postTarefa(TodoModel tarefaModelo);
   Future<List<TodoModel>> getTarefa();
   Future<bool> deleteTarefa(String titulo);
 }
@@ -11,7 +11,7 @@ abstract class TarefaRepository {
 class TarefaRepositoryHttp implements TarefaRepository {
   final baseUrl = 'https://crudcrud.com/api/e445910476f64a2fb110171c73eb26fa';
   @override
-  Future<bool> putTarefa(TodoModel company) async {
+  Future<bool> postTarefa(TodoModel company) async {
     final response = await http.post(
       Uri.parse('$baseUrl/todoList'),
       body: company.toJson(),
