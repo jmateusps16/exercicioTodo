@@ -1,13 +1,13 @@
 import 'dart:convert';
 
 class TodoModel {
-  final String titulo;
-  final String subtitulo;
-  final bool finalizado;
+  final String? titulo;
+  final String? subtitulo;
+  final bool? finalizado;
   TodoModel({
-    required this.titulo,
-    required this.subtitulo,
-    required this.finalizado,
+    this.titulo,
+    this.subtitulo,
+    this.finalizado = false,
   });
 
   TodoModel copyWith({

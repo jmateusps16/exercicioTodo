@@ -7,7 +7,7 @@ class AdicionarTarefaController {
   AdicionarTarefaController([TarefaRepository? repository])
       : _adicionarRepository = repository ?? TarefaRepositoryHttp();
 
-  Future<void> createCrudDo(TodoModel todo) async {
+  Future<void> criarTarefa(TodoModel todo) async {
     final result = await _adicionarRepository.postTarefa(todo);
   }
 }
