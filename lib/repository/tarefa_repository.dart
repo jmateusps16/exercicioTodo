@@ -11,10 +11,10 @@ abstract class TarefaRepository {
 class TarefaRepositoryHttp implements TarefaRepository {
   final baseUrl = 'https://crudcrud.com/api/e445910476f64a2fb110171c73eb26fa';
   @override
-  Future<bool> postTarefa(TodoModel company) async {
+  Future<bool> postTarefa(TodoModel todo) async {
     final response = await http.post(
       Uri.parse('$baseUrl/todoList'),
-      body: company.toJson(),
+      body: todo.toJson(),
       headers: {
         "content-type": "application/json",
         "accept": "application/json",
@@ -33,8 +33,8 @@ class TarefaRepositoryHttp implements TarefaRepository {
     print(jsonDecode(response.body));
     print(List.from(jsonDecode(response.body)));
     final list = List.from(jsonDecode(response.body));
-    final company = list.map((e) => TodoModel.fromMap(e)).toList();
-    return company;
+    final todo = list.map((e) => TodoModel.fromMap(e)).toList();
+    return todo;
   }
 
   @override
